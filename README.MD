@@ -66,6 +66,12 @@ Application-Status-Page/
 - MySQL / MariaDB
 - 웹 서버 (Apache 권장, `.htaccess` 지원 필요)
 
+### 0. 파일 다운로드
+```cmd
+git clone https://github.com/hellovend/Application-Status-Page.git
+cd Application-Status-Page
+```
+
 ### 1. 파일 업로드
 FileZilla 등 FTP 클라이언트를 이용해 웹 서버에 파일을 업로드합니다.
 > 호스팅 설정 참고: [닷홈 호스팅 설정 영상](https://www.youtube.com/watch?v=cVMM9PXtWXI&t=1338s)
