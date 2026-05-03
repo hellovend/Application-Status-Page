@@ -132,7 +132,8 @@ $service_status = 0; // 0=정상, 1=점검, 2=종료
 
 ### 6. GCP 설정
 구글 폼을 스트지와 연결 후 `Apps Script`에 
-`function onFormSubmit(e) {
+```JavaScript
+function onFormSubmit(e) {
 
   if (!e || !e.response) {
     Logger.log("이벤트 없음");
@@ -154,7 +155,7 @@ $service_status = 0; // 0=정상, 1=점검, 2=종료
     payload: JSON.stringify(data)
   });
 }
-`
+```
 을 추가 한 후 트리거에서 추가합니다
 
 ### 7. 오류 발생 시 
