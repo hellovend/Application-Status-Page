@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서비스 점검 안내</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #2c3e50, #34495e); /* 차분한 다크 블루 그라데이션 */
+            color: #e0f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            background-color: #ffffff; /* 기존 카드 색 유지 */
+            border-radius: 20px;
+            padding: 50px 30px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            position: relative;
+            color: #006064; /* 글씨색 카드 안쪽 원래대로 */
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: #00bcd4;
+        }
+
+        .footer {
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .dots::after {
+            content: '...';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 0; }
+            25%, 75% { opacity: 1; }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 1.6em;
+            }
+
+            .icon {
+                font-size: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">🛠️</div>
+        <h1>점검 중입니다<span class="dots"></span></h1>
+        <p>우리 서비스는 현재 점검 중이며,<br>
+        곧 정상 서비스로 돌아옵니다. 잠시만 기다려 주세요.</p>
+        <p class="footer">점검 예정 시간: 00년 00월 00일 00:00 ~ 00:00</p>
+    </div>
+</body>
+</html>

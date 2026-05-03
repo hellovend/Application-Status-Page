@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서비스 종료 안내</title>
+    <style>
+        /* Reset 기본 스타일 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #ffffffcc; /* 반투명 흰색 */
+            backdrop-filter: blur(10px); /* 배경 흐림 효과 */
+            padding: 30px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            max-width: 550px;
+            width: 100%;
+            transition: transform 0.3s;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .footer {
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>서비스 종료 안내</h1>
+        <p>안녕하세요. <strong>우리 서비스</strong>를 이용해 주셔서 감사합니다.<br>
+        아쉽게도 본 서비스는 <strong>0000년 00월 00일</strong>부로 종료됩니다.</p>
+        <p>서비스 이용 중인 데이터는 종료일 이전에 백업해 주시기 바랍니다.<br>
+        자세한 안내는 <a href="mailto:hellovend@hellovend.xyz">고객센터</a>로 문의해 주세요.</p>
+        <p class="footer">그동안 저희 서비스를 사랑해주셔서 감사합니다.</p>
+    </div>
+</body>
+</html>

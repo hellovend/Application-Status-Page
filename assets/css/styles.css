@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: "SpoqaHanSansNeo-Regular";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.myTable {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    font: bold 12px/1 "SpoqaHanSansNeo-Regular";
+    border-collapse: collapse;
+    width: 50%; /* 테이블 너비 조절 */
+}
+
+.myTable th, .myTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left; /* 왼쪽으로 텍스트 정렬 */
+    font: bold 13px/1 "SpoqaHanSansNeo-Regular";
+}
+
+.myTable tr:nth-child(even){background-color: #f2f2f2;}
+
+.myTable tr:hover {background-color: #ddd;}
+
+.myTable th {
+    background-color: #6145ff;
+    color: white;
+}
