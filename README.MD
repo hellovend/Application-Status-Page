@@ -105,26 +105,33 @@ $discordWebhook = "https://discord.com/api/webhooks/YOUR_WEBHOOK_URL";
 $service_status = 0; // 0=정상, 1=점검, 2=종료
 ```
 
-### 6. 자동화 설정
-`구글 폼`을 통해서 설문지(지원서)를 `구글 시트지`와 연동한다
-`Apps Script`를 통해 아래 코드를 추가 하시면됩니당
+### 6. GCP 설정
+구글 폼을 스트지와 연결 후 `Apps Script`에 
 ```JavaScript
 function onFormSubmit(e) {
 
+  if (!e || !e.response) {
+    Logger.log("이벤트 없음");
+    return;
+  }
+
+  var itemResponses = e.response.getItemResponses();
+
   var data = {
-    timestamp: e.values[0],
-    nickname: e.values[1],
-    unique_number: e.values[2],
-    age: e.values[3]
+    timestamp: new Date().toISOString(),
+    nickname: itemResponses[0].getResponse(),
+    unique_number: itemResponses[1].getResponse(),
+    age: itemResponses[2].getResponse()
   };
 
-  UrlFetchApp.fetch("http://localhost/sync.php", { 
+  UrlFetchApp.fetch("https://DOMAIN/sync.php", {
     method: "post",
     contentType: "application/json",
     payload: JSON.stringify(data)
   });
 }
 ```
+을 추가 한 후 트리거에서 추가합니다
 
 ---
 
