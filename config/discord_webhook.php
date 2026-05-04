@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $maskedIP = maskIPAddress($userIP);
 
     // URL for the image you want to include
-    $imageUrl = "https://cdn.discordapp.com/attachments/845544237821853756/1416733325321699348/chzzk-on.png?ex=68c7eb3a&is=68c699ba&hm=3f2a4b981850d004943bb032ead72b7ad58291b5488610fde7fd81c243073249&"; // Replace with your image URL
+    $imageUrl = ""; // Replace with your image URL
 
     // Prepare data to send to Discord webhook with an image
     $discordData = [

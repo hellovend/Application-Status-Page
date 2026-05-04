@@ -1,17 +1,15 @@
 <?php
 
-// 🔥 에러 표시 (디버깅용)
+// 🔥 에러 표시 (개발용)
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-// 🔥 DB 연결
-include '../config/dbconfig.php'; // 너 DB 연결 파일
-include '../config/discord_config.php'; // 디스코드 웹훅
+// 🔥 DB / Discord 설정
+include '../config/dbconfig.php';
+include '../config/discord_config.php';
 
 // 🔥 요청 데이터 받기
 $input = file_get_contents("php://input");
-
-// 로그 파일 저장 (요청 들어오는지 확인용)
 file_put_contents("log.txt", $input . "\n", FILE_APPEND);
 
 // JSON 파싱
@@ -21,44 +19,54 @@ if (!$data) {
     die("JSON 파싱 실패");
 }
 
-// 🔥 데이터 꺼내기
+// 🔥 데이터 추출
 $uniqueNumber = $data['unique_number'] ?? null;
 $nickname = $data['nickname'] ?? null;
 $age = $data['age'] ?? null;
-$timestamp = $data['timestamp'] ?? null;
 
-// 값 체크
+// 🔥 서버 기준 시간 (조작 방지)
+$registeredAt = date("Y-m-d H:i:s");
+
+// 값 검증
 if (!$uniqueNumber || !$nickname) {
     die("값 부족");
 }
 
-// 🔥 중복 확인
-$stmt = $conn->prepare("SELECT id FROM candidates WHERE unique_number = ?");
+// =========================
+// 🔥 중복 확인 (exam_results)
+// =========================
+$stmt = $conn->prepare("SELECT id FROM exam_results WHERE unique_number = ?");
 $stmt->bind_param("s", $uniqueNumber);
 $stmt->execute();
 $result = $stmt->get_result();
 
+// =========================
+// 🔥 INSERT (없을 때만)
+// =========================
 if ($result->num_rows === 0) {
 
-    // 🔥 DB 저장 (pending)
+    $passStatus = "pending"; // ENUM 값
+
     $insert = $conn->prepare("
-        INSERT INTO candidates (unique_number, nickname, age, created_at, pass_status)
-        VALUES (?, ?, ?, ?, 'pending')
+        INSERT INTO exam_results 
+        (unique_number, pass_status, registered_at)
+        VALUES (?, ?, ?)
     ");
-    $insert->bind_param("ssis", $uniqueNumber, $nickname, $age, $timestamp);
+
+    $insert->bind_param("sss", $uniqueNumber, $passStatus, $registeredAt);
 
     if ($insert->execute()) {
 
-        // 🔥 디스코드 알림
+        // =========================
+        // 🔥 Discord 알림
+        // =========================
         $msg = [
             'content' => "```새 지원자 접수```",
-            'embeds' => [
-                [
-                    'title' => "닉네임: $nickname",
-                    'description' => "고유번호: $uniqueNumber\n나이: $age",
-                    'color' => 5814783
-                ]
-            ]
+            'embeds' => [[
+                'title' => "닉네임: $nickname",
+                'description' => "고유번호: $uniqueNumber\n상태: $passStatus",
+                'color' => 5814783
+            ]]
         ];
 
         $ch = curl_init($discordWebhookResults);
@@ -69,6 +77,7 @@ if ($result->num_rows === 0) {
         curl_close($ch);
 
         echo "OK";
+
     } else {
         echo "DB 저장 실패";
     }
@@ -76,5 +85,7 @@ if ($result->num_rows === 0) {
 } else {
     echo "이미 존재";
 }
+
+$conn->close();
 
 ?>

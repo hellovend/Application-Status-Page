@@ -30,13 +30,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/css/registration.css">
+    <link rel="stylesheet" href="../assets/css/registration.css">
     <title>SamSam 지원불가자 추가</title>
 </head>
 
 <body>
     <div id="wrap">
-        <!-- <h1><a href="#"><img src="https://cdn.discordapp.com/attachments/927518910864052264/1146529153672294530/ANGEL_LOGO.gif" alt="엔젤 서버 로고"></a></h1> -->
+        <!-- <h1><a href="#"><img src="../assets/logo/logo.png" alt="엔젤 서버 로고"></a></h1> -->
         <h2>SamSam 지원불가자 추가</h2>
         <p>지원불가자의 고유번호를 입력 후 추가하세요!</p>
         <form action="rejected.php" method="post">

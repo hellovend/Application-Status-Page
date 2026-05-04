@@ -116,13 +116,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/css/registration.css">
+    <link rel="stylesheet" href="../assets/css/registration.css">
     <title>SamSam  합격자 등록</title>
 </head>
 
 <body>
     <div id="wrap">
-        <h1><a href="#"><img src="https://cdn.discordapp.com/attachments/845544237821853756/1416733325321699348/chzzk-on.png?ex=68c7eb3a&is=68c699ba&hm=3f2a4b981850d004943bb032ead72b7ad58291b5488610fde7fd81c243073249&" alt="SamSam 서버 로고"></a></h1>
+        <h1><a href="#"><img src="../assets/logo/logo.png" alt="SamSam 서버 로고"></a></h1>
         <h2>SamSam  등록</h2>
         <p>고유번호와 합격여부를 입력 후 등록하세요!</p>
         <form action="index.php" method="post">

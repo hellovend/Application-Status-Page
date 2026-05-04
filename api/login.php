@@ -102,13 +102,13 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/css/logins.css">
+    <link rel="stylesheet" href="../assets/css/logins.css">
     <title>SamSam 인사팀 로그인</title>
 </head>
 <body>
     <div id="wrap">
         <h1>
-            <a href="#"><img src="https://cdn.discordapp.com/attachments/845544237821853756/1416733325321699348/chzzk-on.png" alt="SamSam 로고"></a>
+            <a href="#"><img src="../assets/logo/logo.png" alt="SamSam 로고"></a>
         </h1>
         <h2>인사팀 로그인</h2>
         <p>로그인을 해서 합격자 시스템을 이용해보세요!</p>
