@@ -59,6 +59,8 @@ Application-Status-Page/
 │   ├── maintenance.html           # 서비스 점검 페이지
 │   └── service_ended.html         # 서비스 종료 페이지
 │
+├── index.php                      # /api/check.php 로 이동 (클라이언트)
+├── login.php                      # /admin/login.php 로 이동 (어드민)
 ├── .gitignore                     # Git 무시 파일
 └── README.MD                      # 이 파일
 ```
