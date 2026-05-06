@@ -60,7 +60,7 @@ Application-Status-Page/
 │   └── service_ended.html         # 서비스 종료 페이지
 │
 ├── index.php                      # /api/check.php 로 이동 (클라이언트)
-├── login.php                      # /admin/login.php 로 이동 (어드민)
+├── login.php                      # /admin/login.php 로 이동 (관리자)
 ├── .gitignore                     # Git 무시 파일
 └── README.MD                      # 이 파일
 ```
