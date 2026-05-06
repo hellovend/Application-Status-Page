@@ -30,9 +30,9 @@ Application-Status-Page/
 │   └── index.php                  # 메인 관리자 대시보드
 │
 ├── api/                           # API 엔드포인트 분리
-│   ├── numbers.php                
-│   ├── unique_numbers.php         
-│   ├── unique_numbers.php         
+│   ├── numbers.php                # 합격/불합격/지원불가자 확인
+│   ├── unique_numbers.php         # 데이터베이스에 저장된 고유번호
+│   ├── phpinfo.php                # 실행 서버의 정보
 │   └── check.php                  # 클라이언트가 확인
 │
 ├── assets/
