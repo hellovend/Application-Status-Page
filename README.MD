@@ -116,8 +116,8 @@ Application-Status-Page/
 ### 0. 파일 다운로드
 
 ```bash
-git clone https://github.com/hellovend/Application-Status-Page.git
-cd Application-Status-Page
+git clone https://github.com/hellovend/recruit-dashboard.git
+cd recruit-dashboard
 ```
 
 ---
