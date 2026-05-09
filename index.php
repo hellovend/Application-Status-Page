@@ -1,4 +1,4 @@
 <?php
-header('Location: /api/login.php');
+header('Location: /api/check.php');
 exit;
 ?>

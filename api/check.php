@@ -65,7 +65,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script>
+        (function(){
+            var t = localStorage.getItem("dm-theme") ||
+                    (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+            document.documentElement.setAttribute("data-theme", t);
+        })();
+    </script> -->
     <link rel="stylesheet" href="../assets/css/check.css">
+    <link rel="stylesheet" href="../assets/css/darkmode.css">
     <title>SamSam 합격자 조회</title>
 
     <style>
@@ -76,8 +84,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         #wrap2 .inner {
             position: relative;
             padding: 20px;
-            border: 1px solid #ccc;
-            background: #f9f9f9;
+            border: 1px solid var(--border-color-soft);
+            background: var(--bg-inner);
             max-width: 600px;
         }
 
@@ -89,14 +97,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             border: none;
             background: transparent;
             cursor: pointer;
+            color: var(--text-primary);
         }
 
         #close-btn:hover {
-            color: red;
+            color: var(--danger);
         }
 
-        .passed { color: green; font-weight: bold; }
-        .failed { color: red; font-weight: bold; }
+        .passed { color: #22c55e; font-weight: bold; }
+        .failed { color: var(--danger); font-weight: bold; }
         .pending { color: orange; font-weight: bold; }
         .error { color: gray; font-weight: bold; }
     </style>
@@ -160,6 +169,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </div>
 <?php endif; ?>
 
+<script src="../assets/script/darkmode.js"></script>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const btn = document.getElementById('close-btn');
@@ -172,6 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 </script>
+
 
 </body>
 </html>

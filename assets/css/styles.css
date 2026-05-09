@@ -7,10 +7,14 @@
     font-style: normal;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-primary);
 }
 
 .myTable {
@@ -18,24 +22,29 @@
     transform: translate(-50%, -50%);
     left: 50%;
     top: 50%;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px 0 var(--shadow);
     font: bold 12px/1 "SpoqaHanSansNeo-Regular";
     border-collapse: collapse;
-    width: 50%; /* 테이블 너비 조절 */
+    width: 50%;
 }
 
 .myTable th, .myTable td {
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     padding: 8px;
-    text-align: left; /* 왼쪽으로 텍스트 정렬 */
+    text-align: left;
     font: bold 13px/1 "SpoqaHanSansNeo-Regular";
+    color: var(--text-primary);
 }
 
-.myTable tr:nth-child(even){background-color: #f2f2f2;}
+.myTable tr:nth-child(even) {
+    background-color: var(--bg-table-even);
+}
 
-.myTable tr:hover {background-color: #ddd;}
+.myTable tr:hover {
+    background-color: var(--bg-table-hover);
+}
 
 .myTable th {
-    background-color: #6145ff;
-    color: white;
+    background-color: var(--bg-table-header);
+    color: var(--text-table-header);
 }

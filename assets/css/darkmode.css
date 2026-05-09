@@ -1,0 +1,227 @@
+/* ===== DARK MODE VARIABLES & TOGGLE ===== */
+
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #fff9f9;
+    --bg-card: #ffffff;
+    --bg-table-header: #6145ff;
+    --bg-table-even: #f2f2f2;
+    --bg-table-hover: #ddd;
+    --bg-popup: #ffffff;
+    --bg-wrap2-header: #ccc3ff;
+    --bg-th: #f3ecec;
+    --bg-inner: #f9f9f9;
+    --bg-info-box: #faf5f5;
+
+    --text-primary: #000000;
+    --text-secondary: #868686;
+    --text-table-header: #ffffff;
+    --text-wrap2-header: #000000;
+
+    --border-color: #e9e9e9;
+    --border-color-soft: rgba(0, 0, 0, 0.2);
+    --shadow: rgba(0, 0, 0, 0.1);
+
+    --accent: #6145ff;
+    --accent-hover: #4f35e0;
+    --danger: #f53838;
+    --danger-hover: #d42a2a;
+
+    --toggle-bg: #e0e0e0;
+    --toggle-knob: #ffffff;
+    --toggle-icon-sun: #f5a623;
+    --toggle-icon-moon: #4a4a6a;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #0f0f18;
+    --bg-secondary: #1a1a2e;
+    --bg-card: #16162a;
+    --bg-table-header: #4f35e0;
+    --bg-table-even: #1e1e35;
+    --bg-table-hover: #2a2a45;
+    --bg-popup: #1e1e35;
+    --bg-wrap2-header: #2e2060;
+    --bg-th: #1e1e35;
+    --bg-inner: #1a1a30;
+    --bg-info-box: #1a1a30;
+
+    --text-primary: #e8e8f0;
+    --text-secondary: #a0a0c0;
+    --text-table-header: #ffffff;
+    --text-wrap2-header: #e8e8f0;
+
+    --border-color: #2e2e50;
+    --border-color-soft: rgba(255, 255, 255, 0.12);
+    --shadow: rgba(0, 0, 0, 0.4);
+
+    --accent: #7c63ff;
+    --accent-hover: #9a85ff;
+    --danger: #f53838;
+    --danger-hover: #ff5555;
+
+    --toggle-bg: #3a3a5c;
+    --toggle-knob: #e8e8f0;
+}
+
+/* ===== DARK MODE TOGGLE BUTTON ===== */
+#darkmode-toggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 999999;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-card);
+    border: 1.5px solid var(--border-color-soft);
+    border-radius: 50px;
+    padding: 6px 12px 6px 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 12px var(--shadow);
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+    font-family: "SpoqaHanSansNeo-Regular", sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--text-primary);
+    user-select: none;
+}
+
+#darkmode-toggle:hover {
+    box-shadow: 0 4px 18px var(--shadow);
+}
+
+/* Toggle Switch Track */
+.dm-switch {
+    position: relative;
+    width: 36px;
+    height: 20px;
+    background: var(--toggle-bg);
+    border-radius: 20px;
+    transition: background 0.3s;
+    flex-shrink: 0;
+}
+
+/* Toggle Switch Knob */
+.dm-switch::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 14px;
+    height: 14px;
+    background: var(--toggle-knob);
+    border-radius: 50%;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+[data-theme="dark"] .dm-switch {
+    background: var(--accent);
+}
+
+[data-theme="dark"] .dm-switch::after {
+    transform: translateX(16px);
+}
+
+/* Sun/Moon Icons */
+.dm-icon {
+    font-size: 15px;
+    line-height: 1;
+    transition: transform 0.4s;
+}
+
+[data-theme="dark"] .dm-icon-sun {
+    display: none;
+}
+
+.dm-icon-moon {
+    display: none;
+}
+
+[data-theme="dark"] .dm-icon-moon {
+    display: inline;
+}
+
+.dm-label {
+    font-size: 11px;
+    white-space: nowrap;
+    color: var(--text-primary);
+    transition: color 0.3s;
+}
+
+/* ===== GLOBAL TRANSITIONS ===== */
+*, *::before, *::after {
+    transition: background-color 0.25s ease, 
+                border-color 0.25s ease, 
+                color 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+/* ===== 다크모드 강제 적용 ===== */
+html, body {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+}
+
+html[data-theme="dark"],
+html[data-theme="dark"] body {
+    background-color: #0f0f18 !important;
+    color: #e8e8f0 !important;
+}
+
+html[data-theme="dark"] #wrap,
+html[data-theme="dark"] #wrap1,
+html[data-theme="dark"] #wrap2 {
+    background-color: #16162a !important;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.5) !important;
+}
+
+html[data-theme="dark"] #wrap > h2,
+html[data-theme="dark"] #wrap > p,
+html[data-theme="dark"] #wrap1 > h2,
+html[data-theme="dark"] #wrap1 > p {
+    color: #e8e8f0 !important;
+}
+
+html[data-theme="dark"] input[type="text"],
+html[data-theme="dark"] input[type="password"],
+html[data-theme="dark"] input[type="email"],
+html[data-theme="dark"] select {
+    background-color: #1a1a2e !important;
+    color: #e8e8f0 !important;
+    border-color: #2e2e50 !important;
+}
+
+html[data-theme="dark"] input::placeholder {
+    color: #a0a0c0 !important;
+    opacity: 1 !important;
+}
+
+html[data-theme="dark"] td {
+    background-color: #16162a !important;
+    color: #e8e8f0 !important;
+}
+
+html[data-theme="dark"] th {
+    background-color: #1e1e35 !important;
+    color: #e8e8f0 !important;
+}
+
+html[data-theme="dark"] .inner {
+    background-color: #1a1a30 !important;
+    border-color: #2e2e50 !important;
+}
+
+html[data-theme="dark"] #wrap2 > h1 {
+    background-color: #2e2060 !important;
+    color: #e8e8f0 !important;
+}
+
+html[data-theme="dark"] #wrap,
+html[data-theme="dark"] #wrap1,
+html[data-theme="dark"] #wrap2,
+html[data-theme="dark"] .inner {
+    background-color: #16162a !important;
+}
