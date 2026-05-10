@@ -87,8 +87,8 @@ CREATE TABLE IF NOT EXISTS `candidates` (
 CREATE TABLE IF NOT EXISTS `exam_results` (
     `id`            INT         NOT NULL AUTO_INCREMENT,
     `unique_number` VARCHAR(50) NOT NULL UNIQUE COMMENT '지원자 고유번호',
-    `pass_status`   ENUM('passed','failed', 'pending')
-                                NOT NULL           COMMENT '합격(passed) / 불합격(failed) / 검토(pending)',
+    `pass_status`   ENUM('passed','failed')
+                                NOT NULL           COMMENT '합격(passed) / 불합격(failed)',
     `nickname`      VARCHAR(100) DEFAULT NULL      COMMENT '닉네임 (check.php 표시용)',
     `registered_at` DATETIME    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '등록 일시',
     PRIMARY KEY (`id`),
@@ -127,18 +127,38 @@ CREATE OR REPLACE VIEW `rejected_applicants` AS
 
 -- 인사팀 로그인 계정
 INSERT INTO `users` (`username`, `password`) VALUES
-    ('admin', 'admin1234');
+    ('hr_staff1', 'password123'),
+    ('hr_staff2', 'password456');
 
 -- 심사 결과 샘플
 INSERT INTO `exam_results` (`unique_number`, `pass_status`, `nickname`) VALUES
     ('10001', 'passed',  '합격자닉네임'),
     ('10002', 'failed',  '불합격자닉네임'),
-    ('10003', 'pending',  '합격자닉네임2');
+    ('10003', 'passed',  '합격자닉네임2');
 
 -- 지원불가자 샘플
 INSERT INTO `notpassed_candidates` (`unique_number`) VALUES
     ('99001'),
     ('99002');
+
+-- ============================================================
+-- 7. url_shorts 테이블
+--    참조 파일: api/shorten.php, api/redirect.php
+--    용도: 단축 URL 생성 및 리다이렉트
+--          원본 URL을 해시 코드로 매핑
+-- ============================================================
+CREATE TABLE IF NOT EXISTS `url_shorts` (
+    `id`         INT         NOT NULL AUTO_INCREMENT,
+    `short_code` VARCHAR(20) NOT NULL UNIQUE COMMENT '단축 코드 (예: abc123)',
+    `original_url` TEXT      NOT NULL         COMMENT '원본 URL',
+    `created_at` DATETIME    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '생성 일시',
+    `expires_at` DATETIME    DEFAULT NULL     COMMENT '만료 일시 (선택)',
+    `click_count` INT        DEFAULT 0        COMMENT '클릭 횟수 (통계용)',
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `idx_short_code` (`short_code`),
+    INDEX `idx_created_at` (`created_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+  COMMENT='단축 URL 매핑 테이블';
 
 -- ============================================================
 -- 주요 쿼리 레퍼런스 (코드 내 사용 쿼리 정리)
