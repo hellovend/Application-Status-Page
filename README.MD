@@ -250,9 +250,9 @@ function onFormSubmit(e) {
 
 ## 🌍 테스트 서버 접속
 
-- (메인 페이지)[https://pass.hellovend.xyz/]
-- (관리자 페이지)[https://pass.hellovend.xyz/login.php]
-- (구글 폼 페이지)[https://forms.gle/P8k45qJ3nXNZWAn28]
+- [메인 페이지](https://pass.hellovend.xyz/)
+- [관리자 페이지](https://pass.hellovend.xyz/login.php)
+- [구글 폼 페이지](https://forms.gle/P8k45qJ3nXNZWAn28)
 
 ---
 
