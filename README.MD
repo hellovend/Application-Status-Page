@@ -78,9 +78,7 @@ Application-Status-Page/
 │   │   └── main.js               # 공통 UI 스크립트
 │   └── index.html
 ├── config/                        # 환경 설정 및 웹훅 설정
-│   ├── dbconfig.php              # 실제 DB 연결 설정 (⚠️ .gitignore에 추가 필요)
 │   ├── dbconfig.sample.php       # DB 설정 샘플 파일
-│   ├── discord_config.php        # Discord 웹훅 URL 설정 (⚠️ .gitignore에 추가 필요)
 │   ├── discord_config.sample.php # Discord 설정 샘플 파일
 │   ├── discord_webhook.php       # 메인 Discord 웹훅 전송
 │   ├── discord_webhook_admin_added.php    # 관리자 추가 알림 웹훅
@@ -247,6 +245,14 @@ function onFormSubmit(e) {
 - `DB.sql`의 샘플 데이터(`users` 테이블 초기 계정 등)는 운영 DB 적용 전에 삭제하거나 비밀번호를 변경하세요.
 - 현재 비밀번호가 평문으로 저장됩니다. 운영 환경에서는 `password_hash()` / `password_verify()` 사용을 강력히 권장합니다.
 - Discord 웹훅 URL도 코드에 직접 포함하지 말고 `config/discord_config.php`로 분리해서 관리하세요.
+
+---
+
+## 🌍 테스트 서버 접속
+
+- (메인 페이지)[https://pass.hellovend.xyz/]
+- (관리자 페이지)[https://pass.hellovend.xyz/login.php]
+- (구글 폼 페이지)[https://forms.gle/P8k45qJ3nXNZWAn28]
 
 ---
 
