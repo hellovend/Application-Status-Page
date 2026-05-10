@@ -52,11 +52,6 @@ Application-Status-Page/
 │   └── rejected.php              # 불합격 처리 페이지
 ├── api/                           # 클라이언트/서비스 연동 API 엔드포인트
 │   ├── check.php                 # 지원자 결과 조회 및 서비스 상태 체크
-│   ├── delete.php                # API 방식 데이터 삭제
-│   ├── exam_results_insert.php   # API 방식 결과 등록
-│   ├── index.php                 # API 진입점
-│   ├── login.php                 # 인사팀 로그인 + IP 차단 검사
-│   ├── logins.php                # 로그인 정보 API
 │   ├── numbers.php               # 합격/불합격/지원불가자 번호 목록 조회
 │   ├── phpinfo.php               # PHP 정보 출력 (⚠️ 배포 시 반드시 삭제)
 │   ├── rejected.php              # 지원불가자 API
