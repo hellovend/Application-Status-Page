@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `candidates` (
 CREATE TABLE IF NOT EXISTS `exam_results` (
     `id`            INT         NOT NULL AUTO_INCREMENT,
     `unique_number` VARCHAR(50) NOT NULL UNIQUE COMMENT '지원자 고유번호',
-    `pass_status`   ENUM('passed','failed')
+    `pass_status`   ENUM('passed','failed','pending')
                                 NOT NULL           COMMENT '합격(passed) / 불합격(failed)',
     `nickname`      VARCHAR(100) DEFAULT NULL      COMMENT '닉네임 (check.php 표시용)',
     `registered_at` DATETIME    NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '등록 일시',
@@ -127,14 +127,12 @@ CREATE OR REPLACE VIEW `rejected_applicants` AS
 
 -- 인사팀 로그인 계정
 INSERT INTO `users` (`username`, `password`) VALUES
-    ('hr_staff1', 'password123'),
-    ('hr_staff2', 'password456');
-
+    ('admin', 'admin1234');
 -- 심사 결과 샘플
 INSERT INTO `exam_results` (`unique_number`, `pass_status`, `nickname`) VALUES
     ('10001', 'passed',  '합격자닉네임'),
     ('10002', 'failed',  '불합격자닉네임'),
-    ('10003', 'passed',  '합격자닉네임2');
+    ('10003', 'pending',  '합격자닉네임2');
 
 -- 지원불가자 샘플
 INSERT INTO `notpassed_candidates` (`unique_number`) VALUES
