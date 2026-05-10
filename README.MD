@@ -163,11 +163,7 @@ $discordWebhook = "https://discord.com/api/webhooks/YOUR_WEBHOOK_URL";
 
 ### 4. 서버 로고 설정
 
-`login.php`, `api/check.php`, `admin/index.php`에서 아래 경로의 로고 이미지를 교체합니다.
-
-```html
-<img src="../assets/logo/logo.png" alt="logo">
-```
+'../assets/logo/logo.png' 해당 파일을 교체하십쇼
 
 ---
 
@@ -246,7 +242,7 @@ function onFormSubmit(e) {
 ## 🌍 테스트 서버 접속
 
 - [메인 페이지](https://pass.hellovend.xyz/)
-- [관리자 페이지](https://pass.hellovend.xyz/login.php)
+- [관리자 페이지](https://pass.hellovend.xyz/login.php) <- admin / admin1234
 - [구글 폼 페이지](https://forms.gle/P8k45qJ3nXNZWAn28)
 
 ---
